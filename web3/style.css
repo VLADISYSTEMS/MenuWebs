@@ -182,3 +182,68 @@ header, footer {
 .card:hover .overlay {
   transform: translateY(0);
 }
+
+
+/* ==== MODO RESPONSIVE === */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  header .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .card {
+    width: 140px;
+    height: 140px;
+  }
+
+  .overlay {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  footer .cta-box {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
+  }
+
+  .card {
+    width: 160px;
+    height: 160px;
+  }
+
+  header .brand img {
+    height: 50px;
+  }
+}
