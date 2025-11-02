@@ -1,0 +1,184 @@
+:root {
+  --white: #fcf5b6;
+  --black: #d1caca;
+  --square-size: 55.1px;
+  --side-padding: 40px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Impact, 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  border-radius: 12px;
+}
+
+.content-wrapper {
+  width: calc(100% - 2 * var(--side-padding));
+  max-width: 1400px;
+}
+
+/* Encabezado blanco */
+header {
+  white: #ffffff;
+  width: 100%;
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  box-sizing: border-box;
+}
+
+header .brand {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+header .nav {
+  display: flex;
+  gap: 12px;
+}
+
+header .btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Fondo ajedrezado cuadriculado */
+main {
+  min-height: calc(100vh - 80px);
+  background-color: var(--white);
+  background-image:
+    linear-gradient(45deg, var(--black) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--black) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--black) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--black) 75%);
+  background-size: var(--square-size) var(--square-size);
+  background-position: 0 0, 0 calc(var(--square-size)/2), calc(var(--square-size)/2) calc(-1 * var(--square-size)/2), calc(-1 * var(--square-size)/2) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+}
+
+
+/* Grid de motos */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 140px;
+  gap: 68px;
+}
+
+/* Cajitas de motos */
+.card {
+  background: #ffffff;
+  border: 1px solid #111;
+  border-radius: 12px;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: #111;
+  font-size: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background: var(--white);
+  padding: 28px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
+  margin-top: 20px;
+}
+
+footer .cta-box {
+  background: #f4f4f4;
+  padding: 24px 28px;
+  margin: 0 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+
+footer .cta-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+header, footer {
+  background-color: #ffffff !important; /* blanco puro */
+}
+
+
+/* === CSS básico para tarjetas con overlay === */
+.card {
+  position: relative;
+  width: 130px;          /* puedes ajustar tamaño según Mach6 */
+  height: 130px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card img {
+  width: 80%;          /* ancho relativo a la tarjeta */
+  height: 80%;         /* alto relativo a la tarjeta */
+  object-fit: contain;  /* mantiene la proporción sin recortar */
+  border-radius: 12px;  /* puntas redondeadas */
+  display: block;
+  margin: 0 auto;      /* centra la imagen */
+  background-color: #f0f0f0; /* fondito gris clarito */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 12px;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  font-family: Arial; /* fuente clara */
+  font-size: 11px;
+  font-weight: 20;       /* normal, menos grueso */
+  line-height: 2;       /* opcional: para que no se vea apelotonado */
+  color: #fff;            /* mantiene el texto visible sobre el fondo oscuro */
+}
+
+.card:hover .overlay {
+  transform: translateY(0);
+}

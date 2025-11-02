@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fondo Ajedrezado Cuadriculado - Con Franjas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content-wrapper">
+    <header>
+      <div class="brand">
+        <img src="LogoMoto.png" alt="Logo" class="logo">
+      </div>
+      <nav class="nav">
+        <button class="btn">Servicios</button>
+        <button class="btn">Contacto</button>
+        <button class="btn">Cuenta</button>
+      </nav>
+    </header>
+
+    <main>
+      <div class="grid" id="catalog-grid"></div>      
+    </main>
+
+    <footer>
+      <div class="cta-box">Comprar Ahora</div>
+      <div class="cta-box">Cotizar Moto</div>
+      <div class="cta-box">Contactar Vendedor</div>
+    </footer>
+  </div>
+  <script>
+
+    (function() {
+   const grid = document.getElementById('catalog-grid');
+
+   const fichas = [
+    ["Yamaha MT-07", "Motor 689cc, 74hp, bicilíndrica 2024"],
+    ["Honda CB500F", "Motor 471cc, 47hp, naked sport 2023"],
+    ["Kawasaki Z900", "Motor 948cc, 125hp, naked agresiva 2024"],
+    ["Suzuki GSX-S750", "Motor 749cc, 114hp, sport urbana 2022"],
+    ["BMW F900R", "Motor 895cc, 105hp, precisión alemana"],
+    ["Ducati Monster 821", "Motor 821cc, 109hp, pura adrenalina"],
+    ["Triumph Street Triple R", "Motor 765cc, 118hp, británica pura"],
+    ["KTM Duke 790", "Motor 799cc, superligera"],
+    ["Yamaha XSR700", "Motor 689cc, estilo retro moderno"],
+    ["Honda CB650R", "Motor 649cc, 94hp, equilibrada y ágil"],
+    ["Yamaha R7", "Motor 689cc, deportiva media cilindrada"],
+    ["Suzuki SV650", "Motor 645cc, bicilíndrica versátil"],
+    ["Ducati Panigale V2", "Motor 955cc, 155hp, pura pista"],
+    ["BMW S1000R", "Motor 999cc, 165hp, supernaked alemana"],
+    ["Honda CBR600RR", "Motor 599cc, ADN de circuito"],
+    ["Kawasaki Ninja ZX-10R", "Motor 998cc, 203hp, campeón mundial"],
+    ["Yamaha R1", "Motor 998cc, 200hp, leyenda japonesa"],
+    ["Aprilia Tuono 660", "Motor 659cc, naked italiana ágil"],
+    ["KTM 890 Duke R", "Motor 890cc, supernaked extrema"],
+    ["MV Agusta Brutale 800", "Motor 798cc, diseño italiano puro"],
+    ["Royal Enfield Classic 350", "Motor 349cc, estilo vintage"],
+    ["Benelli 302S", "Motor 300cc, italiana para principiantes"],
+    ["CFMoto 650NK", "Motor 649cc, china con corazón japonés"],
+    ["Yamaha MT-03", "Motor 321cc, ligera y urbana"],
+    ["Honda CB300R", "Motor 286cc, compacta y moderna"],
+    ["Kawasaki Z400", "Motor 399cc, potencia y control"],
+    ["Suzuki Gixxer 250", "Motor 249cc, práctica y económica"],
+    ["Yamaha FZ25", "Motor 249cc, confiable y urbana"],
+    ["Bajaj Dominar 400", "Motor 373cc, ideal para viajes"],
+    ["TVS Apache RR310", "Motor 312cc, deportiva accesible"],
+    ["Harley-Davidson Iron 883", "Motor 883cc, clásica americana"],
+    ["Harley-Davidson Fat Bob", "Motor 1868cc, brutal y elegante"],
+    ["Indian Scout Bobber", "Motor 1133cc, potencia con estilo"],
+    ["Moto Guzzi V7", "Motor 744cc, clásica italiana"],
+    ["Triumph Bonneville T100", "Motor 900cc, vintage y suave"],
+    ["BMW R nineT", "Motor 1170cc, arte sobre ruedas"],
+    ["Ducati Scrambler Icon", "Motor 803cc, libre y divertida"],
+    ["Yamaha Tenere 700", "Motor 689cc, doble propósito"],
+    ["Honda Africa Twin", "Motor 1084cc, aventura total"],
+    ["KTM 1290 Super Adventure", "Motor 1301cc, reina del offroad"],
+    ["BMW GS1250", "Motor 1254cc, icono del viaje"],
+    ["Triumph Tiger 900", "Motor 888cc, lista para todo"],
+    ["Suzuki V-Strom 650", "Motor 645cc, touring confiable"],
+    ["Royal Enfield Himalayan", "Motor 411cc, viajera robusta"],
+    ["Kawasaki Versys 650", "Motor 649cc, touring urbano"],
+    ["Benelli TRK 502", "Motor 500cc, viajera italiana"],
+    ["CFMoto 800MT", "Motor 799cc, turismo moderno"],
+    ["Harley-Davidson Pan America", "Motor 1250cc, aventurera americana"],
+    ["Honda Rebel 500", "Motor 471cc, cruiser urbana"],
+    ["Yamaha Bolt R-Spec", "Motor 942cc, estilo bobber"],
+    ["Kawasaki Vulcan S", "Motor 649cc, cruiser moderna"],
+    ["Suzuki Intruder 150", "Motor 155cc, urbana y económica"],
+    ["Bajaj Avenger 220", "Motor 220cc, estilo clásico"],
+    ["Triumph Rocket 3", "Motor 2458cc, bestia absoluta"],
+    ["Ducati Diavel V4", "Motor 1158cc, cruiser musculosa"],
+    ["Indian Chief Dark Horse", "Motor 1890cc, elegancia y poder"],
+    ["Harley-Davidson Breakout", "Motor 117ci, puro torque"],
+    ["BMW R18", "Motor 1802cc, estilo retro brutal"],
+    ["Moto Morini Seiemmezzo", "Motor 649cc, naked italiana nueva"],
+    ["Zontes 350R", "Motor 348cc, diseño futurista"],
+    
+  ];
+
+   fichas.forEach((ficha, i) => {
+    const [nombre, descripcion] = ficha;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const img = document.createElement('img');
+    img.src = `img/moto${i+1}.png`;  
+    img.alt = nombre;
+    img.loading = 'lazy';
+    img.style.width = '80%';
+    img.style.height = '80%';
+    img.style.objectFit = 'contain';
+    img.style.backgroundColor = '#f0f0f0';
+    img.style.borderRadius = '12px';
+
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    overlay.innerHTML = `<strong>${nombre}</strong><br>${descripcion}`;
+
+    card.appendChild(img);
+    card.appendChild(overlay);
+    grid.appendChild(card);
+    });
+    })();
+  </script>
+
+
+  <!--<script src="script.js"></script>-->
+  <script src="js/script.js"></script>
+
+  <!--<script src="js/fichas.js"></script>-->
+
+
+</body>
+</html>
