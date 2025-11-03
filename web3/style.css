@@ -186,28 +186,6 @@ header, footer {
   transform: translateY(0);
 }
 
-/* Botón flotante decorativo */
-.boton-flotante {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: #ff4000;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 15px 25px;
-  border-radius: 50px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  transition: all 0.3s ease;
-  font-family: 'Poppins', sans-serif;
-}
-
-.boton-flotante:hover {
-  background-color: #e03e00;
-  transform: scale(1.05);
-}
-
 
 
 /* ==== MODO RESPONSIVE === */
@@ -273,4 +251,25 @@ header, footer {
     height: 50px;
   }
 }
-cd
+
+
+/* ==== BOTÓN FLOTANTE === */
+.boton-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff5a00;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 9999;
+}
+
+.boton-flotante:hover {
+  background-color: #ff7a33;
+  transform: scale(1.05);
+}
