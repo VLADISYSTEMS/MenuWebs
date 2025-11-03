@@ -36,9 +36,8 @@
       <div class="cta-box">Contactar Vendedor</div>
     </footer>
   </div>
-  <script>
-
-    (function() {
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
    const grid = document.getElementById('catalog-grid');
 
    const fichas = [
@@ -105,14 +104,14 @@
     
   ];
 
-   fichas.forEach((ficha, i) => {
+fichas.forEach((ficha, i) => {
     const [nombre, descripcion] = ficha;
 
     const card = document.createElement('div');
     card.className = 'card';
 
     const img = document.createElement('img');
-    img.src = `img/moto${i+1}.png`;  
+    img.src = `img/moto${i+1}.webp`;
     img.alt = nombre;
     img.loading = 'lazy';
     img.style.width = '80%';
@@ -128,9 +127,9 @@
     card.appendChild(img);
     card.appendChild(overlay);
     grid.appendChild(card);
-    });
-    })();
-  </script>
+  });
+});
+</script>
 
 
   <!--<script src="script.js"></script>-->
