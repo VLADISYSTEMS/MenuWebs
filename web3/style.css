@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
 :root {
   --white: #fcf5b6;
   --black: #d1caca;
@@ -9,7 +12,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Impact, 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   overflow-x: hidden;
 }
 
@@ -212,8 +215,8 @@ header, footer {
   }
 
   .card {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
   }
 
   .overlay {
@@ -239,8 +242,8 @@ header, footer {
   }
 
   .card {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
   }
 
   header .brand img {
