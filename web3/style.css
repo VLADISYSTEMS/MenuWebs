@@ -188,7 +188,7 @@ header, footer {
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 60px;
   }
 }
 
@@ -208,7 +208,7 @@ header, footer {
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
+    gap: 30px;
   }
 
   .card {
@@ -235,7 +235,7 @@ header, footer {
 @media (max-width: 480px) {
   .grid {
     grid-template-columns: repeat(1, 1fr);
-    gap: 25px;
+    gap: 50px;
   }
 
   .card {
