@@ -1,0 +1,248 @@
+/* ============================
+   RESET GENERAL
+============================ */
+* {
+    margin: 0;             /* Quita márgenes por defecto */
+    padding: 0;            /* Quita padding por defecto */
+    box-sizing: border-box;/* Hace que el padding no aumente el ancho de los elementos */
+}
+
+/* ============================
+   BODY
+============================ */
+body {
+    font-family: 'Georgia', serif; /* Fuente elegante y clásica estilo libros antiguos */
+    background-color: #000;        /* Negro absoluto de fondo */
+    color: #fff;                   /* Texto blanco para contraste */
+    line-height: 1.6;              /* Separación legible entre líneas */
+}
+
+/* ============================
+   HEADER
+============================ */
+header {
+    display: flex;                 /* Usamos flex para alinear izquierda y derecha */
+    justify-content: space-between;/* Nombre a la izquierda, slogan a la derecha */
+    align-items: center;           /* Centra verticalmente */
+    padding: 20px 50px;            /* Espacio interno del header */
+    border-bottom: 2px solid #fff; /* Línea blanca decorativa al final del header */
+}
+
+header h1 {
+    font-size: 2em;                /* Tamaño grande para el nombre de la pastelería */
+    font-weight: bold;
+    letter-spacing: 2px;           /* Espaciado elegante entre letras */
+}
+
+header h2 {
+    font-size: 1.5em;              /* Tamaño más pequeño para el slogan */
+    font-style: italic;            /* Estilo cursivo para elegancia */
+}
+
+/* ============================
+   MAIN - SECCIONES DE HISTORIA
+============================ */
+main {
+    width: 90%;
+    max-width: 1200px;          /* Para no estirar demasiado en pantallas grandes */
+    margin: 50px auto;           /* Centra horizontalmente y deja margen superior */
+}
+
+/* Cada sección de historia */
+.story-section {
+    display: flex;               /* Para alinear texto y foto lado a lado */
+    align-items: center;         /* Centra verticalmente */
+    margin-bottom: 80px;         /* Separación entre secciones */
+    position: relative;
+}
+
+/* Texto a la izquierda */
+.left-text .story-text {
+    flex: 1;                     /* Ocupa la mitad del espacio */
+    padding-right: 30px;         /* Espacio entre texto y foto */
+    text-align: left;
+}
+
+/* Texto a la derecha */
+.right-text .story-text {
+    flex: 1;
+    padding-left: 30px;
+    text-align: left;
+}
+
+/* Imagen de cada sección */
+.story-image {
+    flex: 1;                     /* Ocupa la otra mitad del espacio */
+}
+
+.story-image img {
+    width: 100%;                 /* Imagen ocupa todo el div */
+    border-radius: 10px;         /* Bordes redondeados elegantes */
+    box-shadow: 0 0 15px rgba(255,255,255,0.2); /* Sombra suave */
+}
+
+/* ============================
+   TITULOS DE CADA PARTE
+============================ */
+.story-text h3 {
+    font-size: 1.8em;           /* Título destacado de cada sección */
+    margin-bottom: 15px;
+    font-family: 'Georgia', serif;
+}
+
+/* PRIMERA LETRA GRANDE ESTILO LIBRO */
+.story-text p:first-letter {
+    font-size: 3em;              /* Letra inicial enorme */
+    font-weight: bold;
+    color: #f5c5c5;              /* Color suave contrastante */
+    float: left;
+    margin-right: 8px;
+    line-height: 1;
+}
+
+/* Texto del pastel */
+.pastry {
+    font-style: italic;           /* Cursiva elegante para los pasteles */
+    color: #ffd700;               /* Dorado para resaltar dulces */
+    margin-top: 10px;
+}
+
+/* ============================
+   FOOTER
+============================ */
+footer {
+    border-top: 2px solid #fff;  /* Línea blanca decorativa arriba */
+    text-align: center;           /* Centra contenido */
+    padding: 30px 20px;
+    font-size: 0.9em;            /* Texto más pequeño para footer */
+    background-color: #000;       /* Negro absoluto */
+}
+
+/* ============================
+   FILIGRANAS Y DECORADOS
+============================ */
+.story-section::before {
+    content: "✻";                /* Símbolo decorativo */
+    position: absolute;
+    font-size: 50px;
+    color: rgba(255,255,255,0.05); /* Muy tenue */
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Inicialmente las secciones estarán ocultas */
+.story-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+/* Cuando tienen la clase visible */
+.story-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ======= VERSIÓN RESPONSIVE MÓVIL ======= */
+
+/* Este bloque se activa en pantallas menores a 1024px (tablets y móviles grandes) */
+@media (max-width: 1024px) {
+
+  header {
+    flex-direction: column;      /* Cambia el encabezado de horizontal a vertical */
+    text-align: center;          /* Centra el texto dentro del header */
+    gap: 0.5rem;                 /* Espacio entre los elementos internos */
+  }
+
+  header h1 {
+    font-size: 2rem;             /* Reduce tamaño del título principal */
+  }
+
+  header p {
+    font-size: 1rem;             /* Reduce subtítulo para mejor lectura */
+  }
+
+  .story-section {
+    flex-direction: column;      /* Las secciones con texto e imagen ahora van apiladas */
+    text-align: center;          /* Centra el texto de las secciones */
+    padding: 2rem 1rem;          /* Ajusta márgenes para pantallas más angostas */
+  }
+
+  .story-section.left-text .story-text,
+  .story-section.right-text .story-text {
+    order: 2;                    /* Mueve el texto debajo de la imagen */
+    padding: 1rem 0;             /* Espacio arriba y abajo del bloque de texto */
+  }
+
+  .story-section.left-text .story-image,
+  .story-section.right-text .story-image {
+    order: 1;                    /* Asegura que la imagen siempre quede arriba */
+    width: 100%;                 /* Imagen ocupa todo el ancho disponible */
+    margin-bottom: 1rem;         /* Separa imagen del texto siguiente */
+  }
+
+  .story-image img {
+    width: 90%;                  /* Imagen se ajusta sin tocar bordes de pantalla */
+    max-width: 400px;            /* Limita tamaño máximo para no deformarse */
+    height: auto;                /* Mantiene proporción original de la imagen */
+    border-radius: 10px;         /* Bordes suavemente redondeados */
+  }
+
+  .story-text h3 {
+    font-size: 1.5rem;           /* Título del bloque ligeramente reducido */
+    letter-spacing: 0.5px;       /* Espaciado suave entre letras */
+  }
+
+  .story-text p {
+    font-size: 1rem;             /* Tamaño del párrafo ideal para móviles */
+    line-height: 1.6;            /* Espaciado vertical cómodo para leer */
+  }
+
+  .pastry {
+    font-style: italic;          /* Mantiene el estilo cursivo de los nombres de postres */
+    font-size: 1rem;             /* Tamaño equilibrado */
+    margin-top: 0.5rem;          /* Separación del párrafo anterior */
+  }
+
+  /* Espaciado entre secciones */
+  .story-section {
+    margin-bottom: 3rem;         /* Deja aire entre secciones en pantallas pequeñas */
+  }
+
+  footer {
+    flex-direction: column;      /* Footer pasa de fila a columna */
+    text-align: center;          /* Centra el contenido del pie */
+    gap: 0.8rem;                 /* Espacio vertical entre elementos */
+    font-size: 0.9rem;           /* Letra un poco más pequeña */
+    padding: 2rem 1rem;          /* Relleno interno ajustado */
+  }
+}
+
+/* Este bloque se activa en teléfonos muy pequeños (hasta 480px) */
+@media (max-width: 480px) {
+
+  header h1 {
+    font-size: 1.6rem;           /* Título principal más compacto */
+  }
+
+  header p {
+    font-size: 0.9rem;           /* Subtítulo aún más pequeño */
+  }
+
+  .story-text h3 {
+    font-size: 1.2rem;           /* Título de sección proporcional al tamaño de pantalla */
+  }
+
+  .story-text p {
+    font-size: 0.9rem;           /* Texto ajustado a lectura fluida sin zoom */
+  }
+
+  .pastry {
+    font-size: 0.9rem;           /* Nombres de postres más compactos */
+  }
+
+  footer {
+    font-size: 0.8rem;           /* Pie de página más reducido */
+  }
+}
